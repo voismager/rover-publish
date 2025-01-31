@@ -7,8 +7,9 @@ import core from "@actions/core";
 import path from 'path';
 
 const downloadArtifact = async (name) => {
-  const artifact = new DefaultArtifactClient()
-  const response = await artifact.downloadArtifact(name)
+  const artifactClient = new DefaultArtifactClient()
+  const artifactId = (await artifactClient.getArtifact(name)).artifact.id
+  const response = await artifactClient.downloadArtifact(artifactId)
   return path.join(response.downloadPath, name)
 }
 
