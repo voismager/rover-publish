@@ -1,4 +1,4 @@
-FROM node:14
+FROM node:23
 RUN curl -sSL https://rover.apollo.dev/nix/latest | sh
 COPY package.json ./
 COPY yarn.lock ./

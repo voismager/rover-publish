@@ -1,14 +1,15 @@
+import {DefaultArtifactClient} from "@actions/artifact";
 
-const core = require('@actions/core')
-const exec = require('@actions/exec')
-const artifact = require('@actions/artifact')
-const path = require('path')
+import exec from "@actions/exec";
+
+import core from "@actions/core";
+
+import path from 'path';
 
 const downloadArtifact = async (name) => {
-  const client = artifact.create()
-  const options = { createArtifactFolder: false }
-  await client.downloadArtifact(name, __dirname, options)
-  return path.join(__dirname, `/${name}`)
+  const artifact = new DefaultArtifactClient()
+  const response = await artifact.downloadArtifact(name)
+  return path.join(response.downloadPath, name)
 }
 
 const rover = async (args = []) => {
