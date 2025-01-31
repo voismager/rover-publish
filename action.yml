@@ -1,4 +1,4 @@
-name: 'Apollo Rover Publish Action'
+name: 'Apollo Rover Publish Action (node 23)'
 description: 'publish a schema to Apollo Studio'
 branding:
   icon: 'arrow-up'  
