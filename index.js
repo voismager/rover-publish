@@ -41,6 +41,7 @@ async function run() {
     if (federated) args.push('--name', subgraph)
     if (routingURL) args.push('--routing-url', routingURL)
     if (convert) args.push('--convert')
+    args.push('--client-timeout', 60)
     await rover([
       federated ? 'subgraph' : 'graph',
       'publish',
